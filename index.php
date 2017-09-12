@@ -12,8 +12,10 @@ for($i = 0; $i < count($food); $i++)
     for($q = 0; $q < count($food[$i]); $q++)
     {
         echo ' | ' . $food[$i][$q];
-        echo '---------------------------';
-    }
+ //       echo "\n"; 
+ //       echo '---------------------------';
+ //       echo "\n"; 
+   }
     echo "\n";
 }
 
