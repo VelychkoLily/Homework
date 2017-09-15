@@ -1,21 +1,16 @@
 <?php
-
-$fruits = array ('apple', 'pear', 'nectarine');
-$vegetables = array ('carrot', 'cucumber', 'onion');
-$meat = array('duck', 'rabbit', 'pork');
-
-$food = array ($fruits, $vegetables, $meat);
-
-// обход двумерного массива
-for($i=0; $i < count($food); $i++)
-{
+$filename = 'array.txt';
+require_once('function.php');
+writeArrayInFile($food);
+$arrayResult = readArrayInFile('function.php');
 
 
-for($q=0; $q < count($food[$i]); $q++)
-{
-echo  " | ".$food[$i][$q];
+for ($i = 0; $i < count($arrayResult); $i++) {
+
+
+    for ($q = 0; $q < count($arrayResult[$i]); $q++) {
+        echo " | " . $arrayResult[$i][$q];
+    }
+    echo "\n";
+
 }
-echo  "\n";
-}
-
-?>
