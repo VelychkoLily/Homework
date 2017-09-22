@@ -71,3 +71,12 @@ function renderTable($arrayResult, $keys)
         echo "\n";
     }
 }
+
+function getParam ($argv) {
+    $argvArray = array();
+    for ($i = 1; $i < count($argv); $i++) {
+        array_push( $argvArray , $argv[$i]);
+
+    }
+    return $argvArray;
+}
