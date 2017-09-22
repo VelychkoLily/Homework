@@ -1,8 +1,9 @@
 <?php
+
 /**
  * @param $filename
- * @return mixed
  *
+ * @return mixed
  */
 function readArrayInFile($filename)
 {
@@ -15,7 +16,6 @@ function readArrayInFile($filename)
  * @param $arrayResult
  *
  * @return array
- *
  */
 function calculateColumnLengths($arrayResult)
 {
@@ -37,19 +37,22 @@ function calculateColumnLengths($arrayResult)
     }
     return $keys;
 }
+
 /**
  * @param $keys
  *
  * @return int
  */
-function calculateMinusLehgth($keys) {
+function calculateMinusLength($keys)
+{
     $sumElement = 0;
     for ($i = 0; $i < count($keys); $i++) {
-        $sumElement = $sumElement + $keys[$i]+2 ;
+        $sumElement = $sumElement + $keys[$i] + 2;
 
     }
-    return  $sumElement +1 ;
+    return $sumElement + 1;
 }
+
 /**
  * @param $arrayResult
  * @param $keys
@@ -57,7 +60,7 @@ function calculateMinusLehgth($keys) {
 function renderTable($arrayResult, $keys)
 {
     for ($i = 0; $i < count($arrayResult); $i++) {
-        echo str_repeat("-", calculateMinusLehgth($keys));
+        echo str_repeat("-", calculateMinusLength($keys));
         echo "\n";
         for ($q = 0; $q < count($arrayResult[$i]); $q++) {
             echo "|";
