@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @param $filename
+ * @return mixed
+ *
+ */
 function readArrayInFile($filename)
 {
     $text = file_get_contents($filename);
@@ -7,7 +11,12 @@ function readArrayInFile($filename)
     return $foodArray;
 }
 
-
+/**
+ * @param $arrayResult
+ *
+ * @return array
+ *
+ */
 function calculateColumnLengths($arrayResult)
 {
     $keys = array();
@@ -15,7 +24,7 @@ function calculateColumnLengths($arrayResult)
         for ($q = 0; $q < count($arrayResult[$i]); $q++) {
 
             // add indexes if not exists
-            if(!array_key_exists($q, $keys)) {
+            if (!array_key_exists($q, $keys)) {
                 // add element to array for current key number
                 $keys[$q] = 0;
             }
@@ -28,33 +37,34 @@ function calculateColumnLengths($arrayResult)
     }
     return $keys;
 }
-
 /**
+ * @param $keys
  *
- * [
- *  [1,2,3],
- *  [3,4,5],
- *
- * ]
- *
- * [3, 4, 5]
- *
- *
- * @param $data
+ * @return int
+ */
+function calculateMinusLehgth($keys) {
+    $sumElement = 0;
+    for ($i = 0; $i < count($keys); $i++) {
+        $sumElement = $sumElement + $keys[$i]+2 ;
+
+    }
+    return  $sumElement +1 ;
+}
+/**
+ * @param $arrayResult
  * @param $keys
  */
-function renderTable($arrayResult, $keys) {
-
+function renderTable($arrayResult, $keys)
+{
     for ($i = 0; $i < count($arrayResult); $i++) {
+        echo str_repeat("-", calculateMinusLehgth($keys));
+        echo "\n";
         for ($q = 0; $q < count($arrayResult[$i]); $q++) {
- echo "--";
             echo "|";
             echo " ";
             echo str_pad($arrayResult[$i][$q], $keys[$q]);
-
         }
+        echo '|';
+        echo "\n";
     }
-
-
-
 }
