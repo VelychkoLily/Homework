@@ -8,4 +8,5 @@ $arrayResult = readArrayInFile(PATH);
 $keys = calculateColumnLengths($arrayResult);
 $abc = getParam($argv);
 array_unshift( $arrayResult, $abc);
+
 renderTable($arrayResult, $keys);
