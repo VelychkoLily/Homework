@@ -21,7 +21,6 @@ function calculateColumnLengths($arrayResult)
 {
     $keys = array();
     for ($i = 0; $i < count($arrayResult); $i++) {
-
         for ($q = 0; $q < count($arrayResult[$i]); $q++) {
 
             // add indexes if not exists
@@ -58,6 +57,7 @@ function calculateMinusLength($keys)
 
 /**
  * @param $arrayResult
+ *
  * @param $keys
  */
 function renderTable($arrayResult, $keys)
@@ -77,13 +77,16 @@ function renderTable($arrayResult, $keys)
     }
 }
 
+/**
+ * @param $argv
+ *
+ * @return array
+ */
 function getParam($argv)
 {
     $argvArray = array();
     for ($i = 1; $i < count($argv); $i++) {
         array_push($argvArray, $argv[$i]);
-
-
     }
     return $argvArray;
 }
