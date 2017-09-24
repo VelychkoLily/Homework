@@ -27,15 +27,17 @@ function calculateColumnLengths($arrayResult)
             if (!array_key_exists($q, $keys)) {
                 // add element to array for current key number
                 $keys[$q] = 0;
-            }
 
-            if ($keys[$q] < strlen($arrayResult[$i][$q])) {
-                // сравнить елемент массива кейс и длину строки из основного массива
-                $keys[$q] = strlen($arrayResult[$i][$q]);
+
+                if ($keys[$q] < strlen($arrayResult[$i][$q])) {
+                    // сравнить елемент массива кейс и длину строки из основного массива
+                    $keys[$q] = strlen($arrayResult[$i][$q]);
+
+                }
             }
         }
+        return $keys;
     }
-    return $keys;
 }
 
 /**
@@ -55,6 +57,7 @@ function calculateMinusLength($keys)
 
 /**
  * @param $arrayResult
+ *
  * @param $keys
  */
 function renderTable($arrayResult, $keys)
@@ -62,12 +65,28 @@ function renderTable($arrayResult, $keys)
     for ($i = 0; $i < count($arrayResult); $i++) {
         echo str_repeat("-", calculateMinusLength($keys));
         echo "\n";
+        echo $i + 1;
         for ($q = 0; $q < count($arrayResult[$i]); $q++) {
             echo "|";
             echo " ";
             echo str_pad($arrayResult[$i][$q], $keys[$q]);
         }
+
         echo '|';
         echo "\n";
     }
+}
+
+/**
+ * @param $argv
+ *
+ * @return array
+ */
+function getParam($argv)
+{
+    $argvArray = array();
+    for ($i = 1; $i < count($argv); $i++) {
+        array_push($argvArray, $argv[$i]);
+    }
+    return $argvArray;
 }
